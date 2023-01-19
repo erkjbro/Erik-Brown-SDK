@@ -1,4 +1,4 @@
-# erik_brown-SDK
+# Erik-Brown-SDK
 
 > 0.0.0
 

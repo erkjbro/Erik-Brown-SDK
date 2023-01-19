@@ -1,11 +1,27 @@
-# lotr-sdk
+# @erkjbro/the-one-sdk
 
-This library was generated with [Nx](https://nx.dev).
+> 0.0.1
 
-## Building
+### Description
 
-Run `nx build lotr-sdk` to build the library.
+SDK for interacting with [the one API](https://the-one-api.dev/) to rule them all.
 
-## Running unit tests
+### Getting Started
 
-Run `nx test lotr-sdk` to execute the unit tests via [Jest](https://jestjs.io).
+You need an account to use the API. You can get one [here](https://the-one-api.dev/register).
+
+### Installation
+
+`npx i -S @erkjbro/the-one-sdk`
+
+### Usage
+
+```ts
+import { TheOneSdk } from '@erkjbro/the-one-sdk';
+```
+
+### Testing
+
+```ts
+// Test code here
+```

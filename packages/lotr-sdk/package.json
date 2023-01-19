@@ -1,5 +1,23 @@
 {
   "name": "@erkjbro/the-one-sdk",
   "version": "0.0.1",
-  "type": "commonjs"
+  "author": "Erik J Brown <erkjbro@erikjbrown.tech>",
+  "description": "The One SDK",
+  "keywords": [
+    "api",
+    "sdk",
+    "the-one-sdk",
+    "lotr"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erkjbro/Erik-Brown-SDK"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  }
 }
