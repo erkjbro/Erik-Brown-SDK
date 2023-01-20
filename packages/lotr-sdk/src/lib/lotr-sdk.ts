@@ -48,7 +48,7 @@ export class theOneSdk {
   getMovieData(): Promise<apiTypes.MovieApiResponse>;
   getMovieData(_id: string): Promise<apiTypes.MovieApiResponse>;
   getMovieData(_id: string, quote: true): Promise<apiTypes.MovieQuoteApiResponse>;
-  public async getMovieData(_id = '', quote = false): Promise<movieResponses> {
+  public async getMovieData(_id?: string, quote?: boolean): Promise<movieResponses> {
     /**
      * Gets movie data from the API.
      *
