@@ -1,7 +1,5 @@
 # @erkjbro/the-one-sdk
 
-> 0.0.1
-
 ### Description
 
 SDK for interacting with [the one API](https://the-one-api.dev/) to rule them all.
