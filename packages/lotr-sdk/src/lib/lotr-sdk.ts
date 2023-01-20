@@ -30,23 +30,24 @@ export class theOneSdk {
      * @param url The URL to fetch data from.
      * @returns Either movie or movie quote data.
      */
-    try {
-      const response = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${this.access_token}`
-        }
-      });
+    if (!this.access_token)
+      throw new Error('No access token provided.');
 
-      if (!response.ok)
-        return Promise.reject(response);
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${this.access_token}`,
+      },
+    });
 
-      return await response.json();
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
+    if (!response.ok)
+      return Promise.reject(response);
+
+    return await response.json();
   }
 
+  getMovieData(): Promise<apiTypes.MovieApiResponse>;
+  getMovieData(_id: string): Promise<apiTypes.MovieApiResponse>;
+  getMovieData(_id: string, quote: true): Promise<apiTypes.MovieQuoteApiResponse>;
   public async getMovieData(_id = '', quote = false): Promise<movieResponses> {
     /**
      * Gets movie data from the API.
