@@ -1,4 +1,4 @@
-export type metaResponse = {
+export type MetaResponse = {
   total: number;
   limit: number;
   offset: number;
@@ -25,10 +25,31 @@ export type MovieQuote = {
   dialog: string;
 }
 
-export type MovieApiResponse = metaResponse & {
+export type MovieApiResponse = MetaResponse & {
   docs: Movie[];
 }
 
-export type MovieQuoteApiResponse = metaResponse & {
+export type MovieQuoteApiResponse = MetaResponse & {
   docs: MovieQuote[];
+}
+
+export type PaginationParams = {
+  limit?: number;
+  page?: number;
+  offset?: number;
+}
+
+export type SortingParams = {
+  sort?: string;
+};
+
+export type FilteringParams = {
+  filter?: string;
+};
+
+export type MetaParams = PaginationParams & SortingParams & FilteringParams;
+
+export type MovieParams = MetaParams & {
+  movieId?: string;
+  quote?: boolean;
 }

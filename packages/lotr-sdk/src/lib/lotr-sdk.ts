@@ -10,6 +10,7 @@ export class theOneSdk {
    * @remarks
    * This class is part of the {@link theOneSdk} package.
    *
+   * @class
    * @param access_token The access token for the API.
    * @param base_url The base URL for the API.
    *
@@ -49,21 +50,26 @@ export class theOneSdk {
   }
 
   getMovieData(): Promise<apiTypes.MovieApiResponse>;
-  getMovieData(_id: string): Promise<apiTypes.MovieApiResponse>;
-  getMovieData(_id: string, quote: true): Promise<apiTypes.MovieQuoteApiResponse>;
-  public async getMovieData(_id?: string, quote?: boolean): Promise<movieResponses> {
+  getMovieData({ movieId }: { movieId: string }): Promise<apiTypes.MovieApiResponse>;
+  getMovieData({ movieId, quote }: apiTypes.MovieParams): Promise<apiTypes.MovieQuoteApiResponse>;
+  public async getMovieData(params?: apiTypes.MovieParams): Promise<movieResponses> {
     /**
      * Gets movie data from the API.
      *
-     * @param _id The ID of the movie to get data for.
-     * @param quote Whether to get movie quote data.
+     * @typedef {Object} MovieParams
+     * @property {string} movieId [] The ID of the movie to get data for.
+     * @property {boolean} quote [] Whether to get movie quotes or not.
+     *
+     * @param {...MovieParams} [] The parameters to use when fetching data.
      *
      * @returns Either movie or movie quote data.
      */
     try {
+      const { movieId, quote } = params ?? {};
+
       const endpoint_url = `${this.base_url}/movie` +
-        `${_id ? `/${_id}` : ''}` +
-        `${(_id && quote) ? '/quote' : ''}`;
+        `${movieId ? `/${movieId}` : ''}` +
+        `${(movieId && quote) ? '/quote' : ''}`;
 
       return await this.fetchMovieData(endpoint_url);
     } catch (error) {

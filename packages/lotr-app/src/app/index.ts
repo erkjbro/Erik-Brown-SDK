@@ -12,13 +12,13 @@ export const runSdk = async () => {
 
     const movieId = movies?.docs[movies.docs.length - 1]?._id ?? MOVIE_ID;
 
-    const movie = await sdk.getMovieData(movieId);
+    const movie = await sdk.getMovieData({ movieId });
     console.log(movie?.docs[0]?.name);
 
-    const movieQuotes = await sdk.getMovieData(
+    const movieQuotes = await sdk.getMovieData({
       movieId,
-      true,
-    );
+      quote: true,
+    });
     console.log(movieQuotes?.docs[1]?.dialog ?? []);
   } catch (error) {
     console.error(error);
