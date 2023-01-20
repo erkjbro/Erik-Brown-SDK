@@ -1,4 +1,5 @@
 import * as apiTypes from './types';
+import { API_BASE_URL } from './constants';
 
 type movieResponses = apiTypes.MovieApiResponse | apiTypes.MovieQuoteApiResponse;
 
@@ -20,7 +21,7 @@ export class theOneSdk {
 
   constructor(access_token: string) {
     this.access_token = access_token;
-    this.base_url = 'https://the-one-api.dev/v2';
+    this.base_url = API_BASE_URL;
   }
 
   private async fetchMovieData(url: string): Promise<movieResponses> {
@@ -33,11 +34,13 @@ export class theOneSdk {
     if (!this.access_token)
       throw new Error('No access token provided.');
 
-    const response = await fetch(url, {
+    const init = {
       headers: {
         Authorization: `Bearer ${this.access_token}`,
       },
-    });
+    };
+
+    const response = await fetch(url, init);
 
     if (!response.ok)
       return Promise.reject(response);
@@ -58,7 +61,10 @@ export class theOneSdk {
      * @returns Either movie or movie quote data.
      */
     try {
-      const endpoint_url = `${this.base_url}/movie${_id ? `/${_id}` : ''}${(_id && quote) ? '/quote' : ''}`;
+      const endpoint_url = `${this.base_url}/movie` +
+        `${_id ? `/${_id}` : ''}` +
+        `${(_id && quote) ? '/quote' : ''}`;
+
       return await this.fetchMovieData(endpoint_url);
     } catch (error) {
       console.error(error);
