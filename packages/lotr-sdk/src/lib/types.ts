@@ -52,4 +52,6 @@ export type MetaParams = PaginationParams & SortingParams & FilteringParams;
 export type MovieParams = MetaParams & {
   movieId?: string;
   quote?: boolean;
+  limit?: number;
+  page?: number;
 }

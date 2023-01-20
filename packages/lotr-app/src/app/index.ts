@@ -18,6 +18,7 @@ export const runSdk = async () => {
     const movieQuotes = await sdk.getMovieData({
       movieId,
       quote: true,
+      page: 2
     });
     console.log(movieQuotes?.docs[1]?.dialog ?? []);
   } catch (error) {

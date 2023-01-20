@@ -65,11 +65,13 @@ export class TheOneSdk {
      * @returns Either movie or movie quote data.
      */
     try {
-      const { movieId, quote } = params ?? {};
+      const { movieId, quote, limit, page } = params ?? {};
 
       const endpoint_url = `${this.base_url}/movie` +
         `${movieId ? `/${movieId}` : ''}` +
-        `${(movieId && quote) ? '/quote' : ''}`;
+        `${(movieId && quote) ? '/quote' : ''}` +
+        `?limit=${limit ?? 100}` +
+        `${page ? `&page=${page}` : ''}`;
 
       return await this.fetchMovieData(endpoint_url);
     } catch (error) {
