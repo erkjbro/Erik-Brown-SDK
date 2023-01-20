@@ -21,9 +21,9 @@ npm i -S @erkjbro/the-one-sdk
 
 ### Usage
 ```ts
-import { TheOneSdk } from '@erkjbro/the-one-sdk';
+const { TheOneSdk } = require("@erkjbro/the-one-sdk");
 
-const sdk = new theOneSdk(YOUR_ACCESS_TOKEN_HERE);
+const sdk = new TheOneSdk(YOUR_ACCESS_TOKEN_HERE);
 
 // Get all movies
 const movies = await sdk.getMovieData();

@@ -3,12 +3,12 @@ import { API_BASE_URL } from './constants';
 
 type movieResponses = apiTypes.MovieApiResponse | apiTypes.MovieQuoteApiResponse;
 
-export class theOneSdk {
+export class TheOneSdk {
   /**
    * SDK for interfacing with The One API.
    *
    * @remarks
-   * This class is part of the {@link theOneSdk} package.
+   * This class is part of the {@link TheOneSdk} package.
    *
    * @class
    * @param access_token The access token for the API.

@@ -1,10 +1,10 @@
-import { theOneSdk } from '@erkjbro/the-one-sdk';
+import { TheOneSdk } from '@erkjbro/the-one-sdk';
 
 const API_KEY = process.env.ONE_ACCESS_TOKEN ?? '';
 const MOVIE_ID = '5cd95395de30eff6ebccde5b';
 
 export const runSdk = async () => {
-  const sdk = new theOneSdk(API_KEY);
+  const sdk = new TheOneSdk(API_KEY);
 
   try {
     const movies = await sdk.getMovieData();
