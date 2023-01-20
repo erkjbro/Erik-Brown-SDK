@@ -8,20 +8,34 @@ SDK for interacting with [the one API](https://the-one-api.dev/) to rule them al
 
 ### Getting Started
 
-You need an account to use the API. You can get one [here](https://the-one-api.dev/register).
+You need an account to obtain an access token to be used with the API. You can get one [here](https://the-one-api.dev/sign-up).
 
 ### Installation
 
-`npx i -S @erkjbro/the-one-sdk`
+This package is available [here](https://www.npmjs.com/package/@erkjbro/the-one-sdk) on npm. 
+You can install it with the following command:
 
-### Usage
-
-```ts
-import { TheOneSdk } from '@erkjbro/the-one-sdk';
+```bash
+npm i -S @erkjbro/the-one-sdk
 ```
 
-### Testing
-
+### Usage
 ```ts
-// Test code here
+import { TheOneSdk } from '@erkjbro/the-one-sdk';
+
+const sdk = new theOneSdk(YOUR_ACCESS_TOKEN_HERE);
+
+// Get all movies
+const movies = await sdk.getMovieData();
+
+// Get specific movie by id
+const movie = await sdk.getMovieData({ 
+  movieId: 'id_for_lotr_movie' 
+});
+
+// Get all quotes for specific movie by id
+const movieQuotes = await sdk.getMovieData({
+  movieId: 'id_for_lotr_movie',
+  quote: true,
+});
 ```

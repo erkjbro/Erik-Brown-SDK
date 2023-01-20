@@ -1,27 +1,10 @@
 # Erik-Brown-SDK
 
-> 0.0.0
+> v0.0.0
+
+> This README describes the development environment used for creating the @erkjbro/the-one-sdk package.
+> For package usage instructions, please see the README.md file in the package directory. (packages/lotr-sdk/README.md)
 
 ### Description
 
 SDK for interacting with [the one API](https://the-one-api.dev/) to rule them all.
-
-### Getting Started
-
-You need an account to use the API. You can get one [here](https://the-one-api.dev/register).
-
-### Installation
-
-`npx i -S @erkjbro/the-one-sdk`
-
-### Usage
-
-```ts
-import { TheOneSdk } from '@erkjbro/the-one-sdk';
-```
-
-### Testing
-
-```ts
-// Test code here
-```
